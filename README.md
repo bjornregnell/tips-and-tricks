@@ -31,6 +31,8 @@ nativeLinkStubs := true
 
 enablePlugins(ScalaNativePlugin)
 
+import scala.scalanative.build._
+
 nativeConfig ~= { 
   _.withLTO(LTO.thin)
     .withMode(Mode.releaseFast) // change to releaseFull for optimized binary
