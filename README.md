@@ -3,7 +3,8 @@
 ## git
 
 * What to do when someone says: "Can you rebase this to latest master and force push?" e.g. like [here](https://github.com/lampepfl/dotty/pull/11878#pullrequestreview-620149574)?
-  * The below commands assumes that you have forked a repo on GitHub/GitLab and cloned it locally and that the main branch is called `master` and that you have added upstream by `git remote add upstream https://github.com/SOMEORG/SOMELIB.git`:
+  * The below commands assumes that you have forked a repo on GitHub/GitLab and cloned it locally and that the main branch is called `master` and that you have added upstream by `git remote add upstream https://github.com/SOMEORG/SOMELIB.git`
+  * More details here [by timonweb.com](https://timonweb.com/misc/how-to-update-a-forked-repo-from-an-upstream-with-git-rebase-or-merge/)
 ```
 git remote -v                  # check that you already have done git remote add upstream  https://github.com/...
 git checkout master            # make sure you are on the right branch
