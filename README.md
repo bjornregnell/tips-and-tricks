@@ -9,9 +9,8 @@
 
 ## sbt
 
-* How to add an environment variables to a scala-native build:
+* How to add an environment variables to a scala-native build: (write this after `import scala.scalanative.build._`)
 ```
-import scala.scalanative.build._
 ThisBuild / envVars := Map(  
   "GC_NONE_PREALLOC_SIZE" -> sys.env.getOrElse("GC_NONE_PREALLOC_SIZE", "4000M"))
 ```
