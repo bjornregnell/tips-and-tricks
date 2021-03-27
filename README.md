@@ -21,6 +21,27 @@ ThisBuild / envVars := Map(
 //https://www.scala-sbt.org/release/docs/Library-Management.html
 resolvers += "Local Maven Repository" at "file://"+Path.userHome.absolutePath+"/.m2/repository"
 ```
+### Minimal scala-native build
+In `build.sbt`:
+```
+scalaVersion := "2.13.4"
+
+// Set to false or remove if you want to show stubs as linking errors
+nativeLinkStubs := true
+
+enablePlugins(ScalaNativePlugin)
+
+nativeConfig ~= { 
+  _.withLTO(LTO.thin)
+    .withMode(Mode.releaseFast) // change to releaseFull for optimized binary
+    .withGC(GC.commix) // change to GC.none to get dummy GC
+}
+```
+In `project/plugins.sbt`:
+```
+addSbtPlugin("org.scala-native" % "sbt-scala-native" % "0.4.0")
+```
+
 ## Create flame graphs (of a Scala Native app)
 
 ```
