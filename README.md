@@ -39,6 +39,27 @@ git push origin master --force # force push your changes to master
 
 ## sbt
 
+* How to add initial commands to console REPL in sbt:
+  ```
+  Compile / console / initialCommands  := """
+    import mypackage.{given, *}
+    import scala.language.{postfixOps, implicitConversions}
+    println("Hello")
+  """
+  ```
+* Compiler options for Scala 3:
+  ```
+   scalacOptions ++= Seq(
+    "-encoding", "utf8", 
+    "-source", "future",
+    "-Xfatal-warnings",  
+    "-deprecation",
+    "-unchecked",
+    "-Ysafe-init",
+    //"-Yexplicit-nulls",
+    //"-language:postfixOps"
+  )
+  ```
 * How to add an environment variables to a scala-native build: (write this after `import scala.scalanative.build._`)
 ```
 ThisBuild / envVars := Map(  
