@@ -20,6 +20,23 @@ git push origin master --force # force push your changes to master
 /usr/bin/time --verbose ./target/scala-2.13/scala-native-out
 ```
 
+* How to fix errors such as "User limit of inotify instances reached or too many open files"
+  * Check your inotify settings: `sysctl fs.inotify`
+  * Update your settings by adding these lines at end of `sudo nano /etc/sysctl.conf`
+  ```
+  #######  MY SETTINGS FOR inotify, increased to prevent errors
+  fs.inotify.max_user_watches=204800
+  fs.inotify.max_user_instances=256
+  fs.inotify.max_queued_events = 204800
+  ```
+  * Hot reload of changes (or wait until restart): `sudo sysctl -p`
+  * Defaults on Ubuntu 18.04 are: 
+  ```
+  #fs.inotify.max_user_watches=16348
+  #fs.inotify.max_user_instances=128
+  #fs.inotify.max_queued_events = 16384
+  ```
+
 ## sbt
 
 * How to add an environment variables to a scala-native build: (write this after `import scala.scalanative.build._`)
