@@ -13,6 +13,17 @@ git rebase upstream/master     # overwrite your master with upstream's master
 git push origin master --force # force push your changes to master
 ```
 
+* How to **delete a file completely** with e.g. sensitive data from a git repo including all historic commits etc:
+  * Make sure your git repo is clean of any changes and pending commits: `git status && git pull && git push` 
+  * If you want to keep the latest version then copy the bad file (here called `bad.file` but replace that with the actual name of the file) to a place outside the git repo. `cp bad.file ~/tmp/.` 
+  * `git rm bad.file` 
+  * `git commit -m "delete bad file"`
+  * Download the latest jar of the `bfg` utility here: https://rtyley.github.io/bfg-repo-cleaner/
+  * In the top dir of the repo write: `java -jar bfg-1.14.0.jar -D bad.file`
+  * `git reflog expire --expire=now --all && git gc --prune=now --aggressive`
+  * `git push --force`
+  * If you want back your latest version then copy it back into the repo and commit.
+
 ## bash, ubuntu
 
 * How to time a command with information on memory usage:
