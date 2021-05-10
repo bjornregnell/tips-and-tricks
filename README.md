@@ -57,7 +57,7 @@ git push origin master --force # force push your changes to master
     * show all apt packages (loooong list, consider appending `| grep -i appname`)
       * `apt list --installed 2>/dev/null`
     * shows which deb-packages are installed *locally* using e.g. `dpkg -i`, `gdebi`, or double-click/software:  
-      * `apt list --installed 2>/dev/null | grep -i ',local]'` 
+      * `apt list --installed 2>/dev/null | grep -i ,local]` 
   * How to update apps to latest version?
     * `flatpak update`
     * `sudo snap refresh`
