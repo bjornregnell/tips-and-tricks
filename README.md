@@ -48,6 +48,28 @@ git push origin master --force # force push your changes to master
   #fs.inotify.max_queued_events = 16384
   ```
 
+* How to manage installed apps on Ubuntu?
+  * Installing apps is a mess; there is apt, snap, flatpak, manual deb-files, ... 
+  * A typical problem is that you have forgotten how you installed an app.
+  * How to check what is installed with each package manager?
+    * `flatpak list` 
+    * `snap list` 
+    * show all apt packages (loooong list, consider appending `| grep -i appname`)
+      * `apt list --installed 2>/dev/null`
+    * shows which deb-packages are installed *locally* using e.g. `dpkg -i`, `gdebi`, or double-click/software:  
+      * `apt list --installed 2>/dev/null | grep -i ',local]'` 
+  * How to update apps to latest version?
+    * `flatpak update`
+    * `sudo snap refresh`
+    * `sudo apt full-upgrade`
+  * How to remove an app?
+    * `flatpak uninstall nameofapp`
+    * `sudo snap remove nameofapp`
+    * Remove unused flatpak runtimes: `flatpak uninstall --unused`
+    * Change number of old snap version to 2 (default 3): `sudo snap set system refresh.retain=2`
+    * `dpkg -r nameofapp`
+    * See also: https://askubuntu.com/questions/22200/how-to-uninstall-a-deb-package
+
 ## sbt
 
 * How to add initial commands to console REPL in sbt:
