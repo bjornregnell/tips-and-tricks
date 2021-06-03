@@ -74,7 +74,7 @@ git push origin master --force # force push your changes to master
 
 Grub is the bootloader that enables dual boot with Ubuntu + Windows.
 
-* How to m ake grub remember last boot choice?
+* How to set grub to remember last boot choice?
   * Read this: https://www.maketecheasier.com/set-grub-remember-last-selection/
 
 ```
@@ -87,7 +87,7 @@ Make changes available:
 sudo update-grub
 ```
 
-* How to make font in grub boot screen readable on a high dpi screen?
+* How to set font in grub boot screen to make it readable on a high dpi screen?
   * Read this: http://blog.wxm.be/2014/08/29/increase-font-in-grub-for-high-dpi.html
 
 ```
