@@ -80,7 +80,7 @@ Grub is the bootloader that enables dual boot with Ubuntu + Windows.
 ```
 sudo nano /etc/default/grub
 ```
-Look for `GRUB_DEFAULT=0` and change it to `GRUB_DEFAULT=saved` and then add `GRUB_SAVEDEFAULT=true` below the GRUB_DEFAULT line.
+Look for `GRUB_DEFAULT="0"` and change it to `GRUB_DEFAULT="saved"` and then add `GRUB_SAVEDEFAULT=true` below the GRUB_DEFAULT line.
 
 Make changes available:
 ```
