@@ -74,12 +74,25 @@ git push origin master --force # force push your changes to master
 
 Grub is the bootloader that enables dual boot with Ubuntu + Windows.
 
+* How to m ake grub remember last boot choice?
+  * Read this: https://www.maketecheasier.com/set-grub-remember-last-selection/
+
+```
+sudo nano /etc/default/grub
+```
+Look for `GRUB_DEFAULT=0` and change it to `GRUB_DEFAULT=saved` and then add `GRUB_SAVEDEFAULT=true` below the GRUB_DEFAULT line.
+
+Make changes available:
+```
+sudo update-grub
+```
+
 * How to make font in grub boot screen readable on a high dpi screen?
   * Read this: http://blog.wxm.be/2014/08/29/increase-font-in-grub-for-high-dpi.html
 
 ```
 sudo grub-mkfont --output=/boot/grub/fonts/DejaVuSansMono24.pf2 --size=48 /usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf
-sudo gedit /etc/default/grub &
+sudo nano /etc/default/grub
 ```
 Add this att end of above file:
 ```
@@ -87,6 +100,12 @@ Add this att end of above file:
 # sudo grub-mkfont --output=/boot/grub/fonts/DejaVuSansMono24.pf2 --size=48 /usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf
 GRUB_FONT=/boot/grub/fonts/DejaVuSansMono24.pf2
 ```
+
+Make changes available:
+```
+sudo update-grub
+```
+
 
 ## sbt
 
