@@ -70,6 +70,24 @@ git push origin master --force # force push your changes to master
     * `dpkg -r nameofapp`
     * See also: https://askubuntu.com/questions/22200/how-to-uninstall-a-deb-package
 
+### grub
+
+Grub is the bootloader that enables dual boot with Ubuntu + Windows.
+
+* How to make font in grub boot screen readable on the high dpi screen?
+  * Read this: http://blog.wxm.be/2014/08/29/increase-font-in-grub-for-high-dpi.html
+  * In terminal:
+```
+sudo grub-mkfont --output=/boot/grub/fonts/DejaVuSansMono24.pf2 --size=48 /usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf
+sudo gedit /etc/default/grub &
+```
+Add this att end of above file:
+```
+# More readable font on high dpi screen, generated with
+# sudo grub-mkfont --output=/boot/grub/fonts/DejaVuSansMono24.pf2 --size=48 /usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf
+GRUB_FONT=/boot/grub/fonts/DejaVuSansMono24.pf2
+```
+
 ## sbt
 
 * How to add initial commands to console REPL in sbt:
