@@ -74,7 +74,7 @@ git push origin master --force # force push your changes to master
 
 Grub is the bootloader that enables dual boot with Ubuntu + Windows.
 
-* How to make font in grub boot screen readable on the high dpi screen?
+* How to make font in grub boot screen readable on a high dpi screen?
   * Read this: http://blog.wxm.be/2014/08/29/increase-font-in-grub-for-high-dpi.html
 
 ```
