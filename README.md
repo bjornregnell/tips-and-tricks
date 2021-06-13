@@ -48,6 +48,12 @@ git push origin master --force # force push your changes to master
   #fs.inotify.max_queued_events = 16384
   ```
 
+* How to install nice fonts for coding?
+```
+sudo apt install fonts-firacode
+ 
+```
+
 * How to manage installed apps on Ubuntu?
   * Installing apps is a mess; there is apt, snap, flatpak, manual deb-files, ... 
   * A typical problem is that you have forgotten how you installed an app.
