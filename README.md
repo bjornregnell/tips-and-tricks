@@ -48,6 +48,12 @@ git push origin master --force # force push your changes to master
   #fs.inotify.max_queued_events = 16384
   ```
 
+* How to install nice fonts for coding?
+```
+sudo apt install fonts-firacode
+ 
+```
+
 * How to manage installed apps on Ubuntu?
   * Installing apps is a mess; there is apt, snap, flatpak, manual deb-files, ... 
   * A typical problem is that you have forgotten how you installed an app.
@@ -69,6 +75,43 @@ git push origin master --force # force push your changes to master
     * Change number of old snap version to 2 (default 3): `sudo snap set system refresh.retain=2`
     * `dpkg -r nameofapp`
     * See also: https://askubuntu.com/questions/22200/how-to-uninstall-a-deb-package
+
+### grub
+
+Grub is the bootloader that enables dual boot with Ubuntu + Windows.
+
+* How to set grub to remember last boot choice?
+  * Read this: https://www.maketecheasier.com/set-grub-remember-last-selection/
+
+```
+sudo nano /etc/default/grub
+```
+Look for `GRUB_DEFAULT="0"` and change it to `GRUB_DEFAULT="saved"` and then add `GRUB_SAVEDEFAULT=true` below the GRUB_DEFAULT line.
+
+Make changes available:
+```
+sudo update-grub
+```
+
+* How to set font in grub boot screen to make it readable on a high dpi screen?
+  * Read this: http://blog.wxm.be/2014/08/29/increase-font-in-grub-for-high-dpi.html
+
+```
+sudo grub-mkfont --output=/boot/grub/fonts/DejaVuSansMono24.pf2 --size=48 /usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf
+sudo nano /etc/default/grub
+```
+Add this att end of above file:
+```
+# More readable font on high dpi screen, generated with
+# sudo grub-mkfont --output=/boot/grub/fonts/DejaVuSansMono24.pf2 --size=48 /usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf
+GRUB_FONT=/boot/grub/fonts/DejaVuSansMono24.pf2
+```
+
+Make changes available:
+```
+sudo update-grub
+```
+
 
 ## sbt
 
