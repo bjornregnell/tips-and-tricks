@@ -111,7 +111,13 @@ Make changes available:
 ```
 sudo update-grub
 ```
+### Problems with dual boot
 
+* After windows update nor grub neither ubuntu will start. If Windows update has changed settings and it used to work you can try the points below, but read first more about what can be the problem here: https://medium.com/@mugglestudies/common-problems-with-ubuntu-and-windows-dual-boot-installations-the-official-muggle-studies-guide-653fa37116b2 
+* Turn off problematic "fast startup" by this in a cmd terminal started as admin: `powercfg -h off`
+* Restart and see if that was the only problem.
+* If no grub the try to set the boot manager path by doing this in a cmd terminal run started admin: `bcdedit /set {bootmgr} path \EFI\ubuntu\grubx64.efi`
+* Then restart and grub shoud be back, or else try more stuff from the link above.
 
 ## sbt
 
